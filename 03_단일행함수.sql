@@ -44,3 +44,6 @@ FROM employees
 WHERE MOD(employee_id, 2) = 0 -- 짝수
 ORDER BY employee_id;
 
+-- 예제
+SELECT SALARY, ROUND(SALARY/30) 정수, ROUND(SALARY/30, 1) 소수1, ROUND(SALARY/30, -1) "10의자리"
+FROM employees;
