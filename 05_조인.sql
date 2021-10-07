@@ -66,4 +66,4 @@ ORDER BY l.location_id DESC;
 -- 크로스 조인 예제 CROSS JOIN
 SELECT c.country_name 국가, r.region_name 지역이름
 FROM countries C
-CROSS JOIN regions R;
+CROSS JOIN regions R ;
