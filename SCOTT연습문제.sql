@@ -187,31 +187,41 @@ FROM EMP
 WHERE SAL BETWEEN 1500 AND 3000;
 
 -- 연습문제 36
-SELECT DNAME, COUNT(E.EMPNO)
+SELECT D.DNAME, COUNT(*)
 FROM emp E JOIN DEPT D
 ON E.DEPTNO = D.DEPTNO
-GROUP BY DNAME
-HAVING COUNT(E.EMPNO) > 5;
+GROUP BY D.DNAME
+HAVING COUNT(*) > 5;
 
 -- 연습문제 37
-SELECT JOB, SAL+NVL(COMM, 0) 급여합계
+SELECT JOB, SUM(SAL) 급여합계
 FROM EMP
+WHERE JOB != 'SALESMAN'
 GROUP BY JOB
-HAVING SAL+NVL(COMM, 0) > 5000; -- 풀이 참고
+HAVING SUM(SAL) > 5000;
 
--- 연습문제 38
-SELECT
-FROM EMP; -- 풀이 참고
+-- 연습문제 38 (SALGRADE 테이블과 조인, 비동등조인)
+SELECT E.EMPNO, E.ENAME, E.SAL, S.GRADE
+FROM EMP E
+JOIN salgrade S
+ON E.SAL BETWEEN S.LOSAL AND S.HISAL;
 
 
 -- 연습문제 39
-SELECT DEPTNO, COUNT(SAL) 사원수, COUNT(COMM) 커미션 받은 사원수
+SELECT DEPTNO, COUNT(*) AS 사원수, COUNT(COMM) "커미션 받은 사원수" --별칭 만들 때 띄어쓰기 있으면 쌍따옴표("") 넣어야 함 AS는 생략 가능
 FROM EMP
-GROUP BY DEPTNO; -- 풀이 참고
+GROUP BY DEPTNO;
 
 -- 연습문제 40
 SELECT ENAME, DEPTNO,
-    DECODE(DEPTNO, '10', '총무부',
-                    '20', '개발부',
-                    '30', '영업부') 부서명
+    DECODE(DEPTNO, 10, '총무부',
+                   20, '개발부',
+                   30, '영업부') 부서명
+FROM EMP;
+
+SELECT ENAME, DEPTNO,
+    CASE DEPTNO WHEN 10 THEN '총무부'
+                WHEN 20 THEN '개발부'
+                WHEN 30 THEN '영업부'
+    END "부서명"
 FROM EMP;
