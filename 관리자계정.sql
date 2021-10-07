@@ -1,5 +1,11 @@
 SELECT SYSDATE FROM DUAL;
 
--- гя аы аж╪╝ют╢о╢ы.
--- HR╟Ха╓(©╛╫ю©К╟Ха╓)ю╩ ╬П╤Тго╟М ╨Я╧п╧Ьхё 1234 аЖа╓
+-- О©╫О©╫ О©╫О©╫ О©╫ж╪О©╫О©╫т╢о╢О©╫.
+-- HRО©╫О©╫О©╫О©╫(О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫)О©╫О©╫ О©╫О©╫О©╫О©╫о╟О©╫ О©╫О©╫п╧О©╫хё 1234 О©╫О©╫О©╫О©╫
 ALTER USER HR ACCOUNT UNLOCK IDENTIFIED BY 1234;
+
+-- SCOTT ЙЁ└Л═∙Л²└ Л└╓Л╧≤К╟▐ К╧└К╡┬Л═∙М∙≤Й╦╟
+@C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql;
+ALTER USER scott 
+IDENTIFIED BY 1234
+ACCOUNT UNLOCK ;
