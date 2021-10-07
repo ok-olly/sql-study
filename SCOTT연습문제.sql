@@ -224,4 +224,4 @@ SELECT ENAME, DEPTNO,
                 WHEN 20 THEN '개발부'
                 WHEN 30 THEN '영업부'
     END "부서명"
-FROM EMP ;
+FROM EMP;

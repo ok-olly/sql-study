@@ -94,4 +94,4 @@ order by department_id;
 SELECT first_name, job_id, salary, department_id
 FROM employees
 WHERE (job_id, salary) IN (SELECT job_id, min(salary) FROM employees group by job_id)
-order by salary DESC ;
+order by salary DESC;
